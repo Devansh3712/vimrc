@@ -1,0 +1,97 @@
+#include <bits/stdc++.h>
+#include <string>
+
+using namespace std;
+
+typedef long long int ll;
+typedef long int l;
+typedef long double ld;
+
+const double pi = acos(-1);
+const long long mod = 1e9 + 7;
+
+#define loop(i,a,n) for(int i=a;i<n;i++)
+#define fe(arr) for(int x : arr)
+#define max(x,y) (x>y)?x:y
+#define min(x,y) (x<y)?x:y
+#define sqr(x) x*x
+
+//<vector>
+typedef vector<int> vi;
+typedef vector<long long int> vll;
+typedef vector<string> vs;
+#define pb push_back
+#define pbk pop_back
+//</vector>
+
+//<deque>
+typedef deque<int> di;
+typedef deque<long long int> dll;
+typedef deque<string> ds;
+#define puf push_front
+#define pft pop_front
+//</deque>
+
+//<scanf>
+#define sf scanf
+
+#define tc() int t; scanf("%d",&t); while(t--)
+
+#define i1(x) int x; scanf("%d",&x)
+#define i2(x,y) int x,y; scanf("%d %d",&x,&y)
+#define i3(x,y,z) int x,y,z; scanf("%d %d %d",&x,&y,&z)
+
+#define ll1(x) long long int x; scanf("%lld",&x)
+#define ll2(x,y) long long int x,y; scanf("%lld %lld",&x,&y)
+#define ll3(x,y,z) long long int x,y,z; scanf("%lld %lld %lld",&x,&y,&z)
+//</scanf>
+
+//<printf>
+#define pf printf
+
+#define pi1(x) printf("%d\n",x)
+#define pi2(x,y) printf("%d %d\n",x,y)
+#define pi3(x,y,z) printf("%d %d %d\n",x,y,z)
+
+#define pll1(x) printf("%lld\n",x)
+#define pll2(x,y) printf("%lld %lld\n",x,y)
+#define pll3(x,y,z) printf("%lld %lld %lld\n",x,y,z)
+//</printf>
+
+void solve(){
+	i1(n);
+	vi arr1;
+	vi arr2;
+	loop(i,0,n){
+		i1(x);
+		arr1.pb(x);
+	}
+	loop(i,0,n){
+		i1(x);
+		arr2.pb(x);
+	}
+	vi answer;
+	loop(i,0,n){
+		int ans=0;
+		loop(j,0,i+1){
+			if(arr1[j]<=arr2[i]){
+				ans+=arr1[j];
+				arr1[j]=0;
+			}else{
+				arr1[j]-=arr2[i];
+				ans+=arr2[i];
+			}
+		}
+		answer.pb(ans);
+	}
+	for(int x: answer){
+		pf("%d",x);
+		pf(" ");
+	}
+}
+
+int main(){
+	solve();
+	return 0;
+}
+
